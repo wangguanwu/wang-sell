@@ -31,6 +31,9 @@ public enum ResultEnum {
     LOGIN_FAIL(18, "登录失败, 登录信息不正确"),
 
     LOGOUT_SUCCESS(19, "登出成功"),
+    SELLERINFO_UPDATE_ERROR(20,"管理员更新失败"),
+    SELLER_ADD_ERROR(21,"管理员增加失败"),
+
     ;
     private Integer code ;
     private String msg;

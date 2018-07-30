@@ -3,7 +3,9 @@ package com.weixin.sell.wangsell.dataobject;/*
  * @date 2018/7/29 21:21
  */
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -17,14 +19,21 @@ import java.util.Date;
 @Data
 @DynamicInsert
 @DynamicUpdate
+@NoArgsConstructor
+@AllArgsConstructor
 public class SellerInfo {
     @Id
-    @GeneratedValue
-    private  Integer id;
+    private  String id;
     private String username ;
     private String password;
     private String openid;
     private Date createTime;
     private Date updateTime;
+    public boolean isPasswordEqual(SellerInfo sellerInfo){
+        if(sellerInfo!=null){
+            return false  ;
+        }
+        return password.equals(sellerInfo.password);
+    }
 
 }
