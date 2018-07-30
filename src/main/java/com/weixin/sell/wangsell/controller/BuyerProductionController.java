@@ -26,7 +26,7 @@ public class BuyerProductionController {
     @Autowired
     private CategoryService categoryService;
     @GetMapping("/list")
-    public ResultVo list(){
+    public ResultVo<List<ProductVo>> list(){
         List<ProductInfo> productInfoList = productService.findUpAll();
         List<Integer> categoryTypeList = productInfoList.stream().map(
                 e-> e.getCategoryType()).collect(Collectors.toList());

@@ -3,14 +3,9 @@
 <head>
     <script src="https://v3.bootcss.com/assets/js/ie-emulation-modes-warning.js"></script>
     <script src="https://v3.bootcss.com/assets/js/ie10-viewport-bug-workaround.js"></script>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
     <link href="https://v3.bootcss.com/examples/signin/signin.css" rel="stylesheet">
     <link href="css/signin.css" type="text/css" rel="stylesheet">
-    <link href="mystatic/css/test.css" type="text/css" rel="stylesheet">
-    <link href="css/test2.css" type="text/css" rel="stylesheet">
-
-
-
 </head>
 <body>
 <div class="container">
