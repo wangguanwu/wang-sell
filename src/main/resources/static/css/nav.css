@@ -1,3 +1,11 @@
-#navbar_container h1{
-    color: white;
+/*侧栏的布局*/
+.left-sider-bar{
+    display:-webkit-flex;
+    /*flex-direction: row;*/
+    /*flex-wrap: wrap;*/
+
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    width:20%;
 }

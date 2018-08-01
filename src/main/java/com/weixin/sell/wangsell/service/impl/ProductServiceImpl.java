@@ -71,4 +71,9 @@ public class ProductServiceImpl implements ProductService {
             productInfoRepository.save(productInfo);
         }
     }
+
+    @Override
+    public List<ProductInfo> findByProdcutCategory(Integer category) {
+        return productInfoRepository.findByCategoryType(category);
+    }
 }

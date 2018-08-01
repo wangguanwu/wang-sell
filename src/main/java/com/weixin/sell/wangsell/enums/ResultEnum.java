@@ -33,6 +33,7 @@ public enum ResultEnum {
     LOGOUT_SUCCESS(19, "登出成功"),
     SELLERINFO_UPDATE_ERROR(20,"管理员更新失败"),
     SELLER_ADD_ERROR(21,"管理员增加失败"),
+    PRODUCT_CATEGORY_NOT_EXIST(22,"商品类型不存在"),
 
     ;
     private Integer code ;

@@ -1,4 +1,4 @@
-<#include "./common/header.ftl">
+<#include "common/header.ftl">
 <html>
 <head>
     <script src="https://v3.bootcss.com/assets/js/ie-emulation-modes-warning.js"></script>

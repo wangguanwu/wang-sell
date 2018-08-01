@@ -1,26 +1,28 @@
-
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="container=fluid">
-        <h1>嘿，欢迎来到点餐系统</h1>
-        <div class="nav-header">
-            <a class="nav-brand" href="#">Home</a>
-
-        </div>
-
-        <ul class="nav navbar-nav">
-         <#assign username="">
-        <#if username == "unknown ">
-            <li class="active"><a href="/customer/login">请登录</a></li>
-        </#if>
-         <#if  username!="unknown">
-             <li><a href="#">欢迎${username}登录</a></li>
-         </#if>
-        </ul>
-        <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
+<body>
+<div class="root-page">
+    <div class="navbar  navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#home">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Sell</a>
             </div>
-            <button type="submit" class="btn btn-default">提交</button>
-        </form>
+            <div class="collapse navbar-collapse" id="home">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                    <li><a href="#shop"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                    <li><a href="#support"><span class="glyphicon glyphicon-headphones"></span> login</a></li>
+                </ul>
+            </div><!-- /.nav-collapse -->
+        </div><!-- /.navbar -->
     </div>
-</nav>
+</div>
+<!-- jQuery (Bootstrap 插件需要引入) -->
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<!-- 包含了所有编译插件 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+

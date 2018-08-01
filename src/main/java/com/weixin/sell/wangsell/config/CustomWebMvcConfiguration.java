@@ -15,15 +15,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class CustomWebMvcConfiguration implements WebMvcConfigurer {
     @Autowired
     LoginInterceptor loginInterceptor ;
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-       // registry.addResourceHandler("/mystatic/**").addResourceLocations("classpath:/mystatic");
-     registry.addResourceHandler("/mystatic/**").addResourceLocations("classpath:mystatic/");
-     registry.addResourceHandler("/mystatic1/**").addResourceLocations("classpath:css/");
-    }
+//    @Override
+//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//       // registry.addResourceHandler("/mystatic/**").addResourceLocations("classpath:/mystatic");
+//     registry.addResourceHandler("/mystatic/**").addResourceLocations("classpath:mystatic/");
+//     registry.addResourceHandler("/mystatic1/**").addResourceLocations("classpath:css/");
+//    }
     //配置登录拦截器
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginInterceptor).addPathPatterns("/admin/login");
+
     }
 }

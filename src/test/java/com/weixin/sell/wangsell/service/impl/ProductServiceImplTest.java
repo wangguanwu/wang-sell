@@ -53,4 +53,9 @@ public class ProductServiceImplTest {
         ProductInfo r = productService.save(productInfo);
         Assert.assertNotNull(r);
     }
+    @Test
+    public void getByCategoryType(){
+        List<ProductInfo> productInfoList =productService.findByProdcutCategory(2);
+        System.out.println(productInfoList);
+    }
 }
