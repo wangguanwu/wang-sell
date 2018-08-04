@@ -13,14 +13,15 @@ import com.weixin.sell.wangsell.vo.ResultVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
-@RestController
+@Controller
 @RequestMapping("/buyer/product")
 @Slf4j
 public class BuyerProductionController {
@@ -37,6 +38,7 @@ public class BuyerProductionController {
      * @return
      */
     @GetMapping("/allList")
+    @ResponseBody
     public ResultVo<List<ProductVo>> list(){
         List<ProductInfo> productInfoList = productService.findUpAll();
         List<Integer> categoryTypeList = productInfoList.stream().map(
@@ -68,6 +70,7 @@ public class BuyerProductionController {
      * @param categoryType
      * @return productVo
      */
+    @ResponseBody
     @GetMapping("/categoryList/{categoryType}")
     public ResultVo<ProductVo> productList(@PathVariable("categoryType")Integer categoryType){
         if(categoryType == null){
@@ -88,5 +91,16 @@ public class BuyerProductionController {
         productVo.setCategoryType(productCategory.getCategoryType());
         return ResultVoUtil.success(productVo);
     }
+    @RequestMapping("/productInfoDetail/{id}")
+    public String singleProduct(@PathVariable("id")String id, Model model){
+        ProductInfo productInfo = productService.findOne(id);
+        if(productInfo == null ){
+            model.addAttribute("errorMsg","查询的产品不存在");
+            return "common/error";
+        }
+        model.addAttribute("productInfo",productInfo);
+        return "product-detail";
+    }
+
 
 }

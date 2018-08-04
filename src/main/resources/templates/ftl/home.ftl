@@ -28,7 +28,7 @@
                             "<div class='img-div'><img src='"+item.productIcon+"'"+"class='img-circle'/></div>"+
                             "<div>价格："+item.price +
                             "<div class='panel-footer'>"+
-                            "<button type='button' style='text-align:center;' class='btn btn-primary'>查看详情</button>"+
+                            "<button type='button' style='text-align:center;' class='btn btn-primary'><a href='buyer/product/productInfoDetail/"+item.id+"'>查看详情</a></button>"+
                             " </div> "+
                             "</div>"+
 
