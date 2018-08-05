@@ -5,6 +5,7 @@ package com.weixin.sell.wangsell.form;/*
 
 import lombok.Data;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.NotEmpty;
 
 @Data

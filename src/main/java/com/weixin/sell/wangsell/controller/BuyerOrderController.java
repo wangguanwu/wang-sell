@@ -6,7 +6,7 @@ package com.weixin.sell.wangsell.controller;/*
 import com.weixin.sell.wangsell.controller.dto.CartDTO;
 import com.weixin.sell.wangsell.controller.dto.OrderDTO;
 import com.weixin.sell.wangsell.converter.OrderForm2OrderDTOConverter;
-import com.weixin.sell.wangsell.dataobject.OrderDetail;
+import com.weixin.sell.wangsell.dataobject.OrderMaster;
 import com.weixin.sell.wangsell.dataobject.ProductInfo;
 import com.weixin.sell.wangsell.enums.ResultEnum;
 import com.weixin.sell.wangsell.form.OrderForm;
@@ -16,10 +16,14 @@ import com.weixin.sell.wangsell.service.OrderService;
 import com.weixin.sell.wangsell.service.ProductService;
 import com.weixin.sell.wangsell.utils.ResultVoUtil;
 import com.weixin.sell.wangsell.vo.ResultVo;
+import freemarker.template.Configuration;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.criterion.Order;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
@@ -27,16 +31,20 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.Collections;
+import java.beans.Beans;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/buyer/order")
 @Slf4j
 public class BuyerOrderController {
+    @Autowired
+    Configuration cfg ;
     @Autowired
     private ProductService productService ;
     @Autowired
@@ -89,8 +97,9 @@ public class BuyerOrderController {
 
     }
     @RequestMapping("/createOrder/directBuy")
-    public String createOrder(CartDTO cartDTO, Model model, Integer quantity){
+    public String createOneProductOrderPage(HttpServletRequest request,CartDTO cartDTO, Model model, Integer quantity){
         if(cartDTO == null ||cartDTO.getProductId() == null || cartDTO.getProductQuantity() ==null){
+            model.addAttribute("errorMsg","输入的信息非法");
             return "common/error";
         }
         ProductInfo productInfo = productService.findOne(cartDTO.getProductId());
@@ -100,7 +109,26 @@ public class BuyerOrderController {
         }
         model.addAttribute("cartDTO",cartDTO);
         model.addAttribute("productInfo",productInfo);
+        model.addAttribute("req",request);
         return "orderPage";
     }
+
+    /*
+     *返回顾客的订单
+     * @author wang
+     * @date 2018/8/5 18:57
+     * @param openid
+     * @return
+     */
+    @RequestMapping("/myOrder/{openid}")
+
+    public String getAllOrder(@PathVariable("openid")String openid,Model model){
+        PageRequest request = PageRequest.of(0,10);
+        List<OrderDTO>  orderMasterList = orderService.findList(openid,request).getContent();
+        model.addAttribute("orderDTOList",orderMasterList);
+        return "BuyedOrderPage";
+
+    }
+
 
 }

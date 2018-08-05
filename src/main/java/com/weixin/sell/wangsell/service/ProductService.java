@@ -15,6 +15,7 @@ public interface ProductService {
     void decreaseStock(List<CartDTO> cartDTOList);
     void increaseStock(List<CartDTO> cartDTOList);
     List<ProductInfo> findByProdcutCategory(Integer category);
+    List<ProductInfo> findByProductId(List<String> productIdList);
 
 
 

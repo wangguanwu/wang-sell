@@ -34,12 +34,14 @@
                         </tr>
                         </thead>
                         <tbody>
-                          <#if cartDTO?? && productInfo??>
-                          <tr>
-                              <td>${productInfo.productName}</td>
-                              <td>${productInfo.productPrice}</td>
-                              <td>${cartDTO.productQuantity}</td>
-                          </tr>
+                          <#if cartMap??>
+                              <#list cartMap as k , v>
+                                  <tr>
+                                      <td>${k.productName}</td>
+                                      <td>${k.productInfo.productPrice}</td>
+                                      <td>${v}</td>
+                                  </tr>
+                              </#list>
                           </#if>
                         </tbody>
                     </table>
@@ -65,9 +67,8 @@
 <script type="text/javascript">
     $(function(){
 
-        $("#submit-order").click(function(){
-            var productId = ${productInfo.productId!false};
-            var productQuantiry = ${cartDTO.productQuantity!false};
+        $("#submit-order").click(function(e){
+            e.preventDefault() ;//阻止默认行为
             if(!productId ||!productQuantiry)
             {
                 $(".alert .alert-warning").css("display","none");
@@ -80,10 +81,16 @@
             $.each(array,function(){
                 postdata=postdata+this.name+"="+this.value+"&";
             });
-            var orderData = {};
-            orderData['productId'] = productId;
-            orderData['productQuantity'] = productQuantiry;
-            postdata= postdata+"items=["+JSON.stringify(orderData)+"]";
+            var orderData = [];
+            <#if cartMap??>
+                <#list cartMap as k ,v>
+                    var obj={};
+                    obj['productId'] = '${k.productId}';
+                    obj['productQuantity'] = '${v}' ;
+                    orderData.push(obj);
+                </#list>
+            </#if>
+            postdata= postdata+"items="+JSON.stringify(orderData);
             $.ajax({
                 method:'POST',
                 url:'/sell/buyer/order/create',

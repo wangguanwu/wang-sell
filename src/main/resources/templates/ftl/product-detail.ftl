@@ -16,7 +16,7 @@
     <#--<div class="panel panel-default">-->
         <div class="panel-body">
             <div id="product-img">
-                <img src="${productInfo.productIcon}/"/>
+                <img src="${productInfo.productIcon}"/>
             </div>
             <div class="product-description">
             ${productInfo.productDescription}

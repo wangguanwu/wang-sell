@@ -16,7 +16,8 @@
     <div class="box">
         <div class="innerbox">
             <h1>404 NOT FOUND</h1>
-            <h2>${error.msg}</h2>
+            <h2>${errorMsg}</h2>
+
             <h3><a href="/">点击跳回主页</a></h3>
         </div>
     </div>

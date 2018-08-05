@@ -76,4 +76,9 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductInfo> findByProdcutCategory(Integer category) {
         return productInfoRepository.findByCategoryType(category);
     }
+
+    @Override
+    public List<ProductInfo> findByProductId(List<String> productIdList) {
+        return productInfoRepository.findByProductId(productIdList);
+    }
 }
