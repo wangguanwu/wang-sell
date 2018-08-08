@@ -58,4 +58,15 @@ public class ProductServiceImplTest {
         List<ProductInfo> productInfoList =productService.findByProdcutCategory(2);
         System.out.println(productInfoList);
     }
+    @Test
+    public void onSale(){
+       ProductInfo re = productService.onSale("123456");
+       Assert.assertNotNull(re);
+
+    }
+    @Test
+    public void downSale(){
+        ProductInfo re = productService.offSale("123456");
+        Assert.assertNotNull(re);
+    }
 }

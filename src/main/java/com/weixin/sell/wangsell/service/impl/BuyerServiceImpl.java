@@ -36,7 +36,7 @@ public class BuyerServiceImpl implements BuyerService {
     }
     private OrderDTO checkOrderOwner(String openid,String orderId){
         OrderDTO orderDTO = orderService.findOne(orderId);
-        if(orderDTO!=null){
+        if(orderDTO==null){
             return null;
         }
         //判断是否是自己的订单

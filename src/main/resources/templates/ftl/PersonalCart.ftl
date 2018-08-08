@@ -22,8 +22,8 @@
                 <tr>
                     <td>${k.productName}</td>
                     <td>${v}</td>
-                    <td><a href="/cart/delete/${k.productId}">删除</a></td>
-                    <td><a href="/cart/modify/${k.productId}">修改</a/></td>
+                    <td><a href="/sell/cart/delete/${k.productId}">删除</a></td>
+                    <td><a href="/sell/cart/getModifyPage/${k.productId}">修改</a/></td>
                 </tr>
             </#list>
         </#if>

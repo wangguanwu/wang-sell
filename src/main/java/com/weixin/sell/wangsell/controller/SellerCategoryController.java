@@ -8,5 +8,5 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/admin/seller/product_category")
-public class SellerProductCategory {
+public class SellerCategoryController {
 }

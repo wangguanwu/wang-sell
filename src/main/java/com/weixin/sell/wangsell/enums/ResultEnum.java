@@ -34,6 +34,8 @@ public enum ResultEnum {
     SELLERINFO_UPDATE_ERROR(20,"管理员更新失败"),
     SELLER_ADD_ERROR(21,"管理员增加失败"),
     PRODUCT_CATEGORY_NOT_EXIST(22,"商品类型不存在"),
+    ORDER_CANCEL_FAIL(22,"订单取消失败"),
+    ORDER_PAY_FAIL(23,"订单支付失败");
 
     ;
     private Integer code ;

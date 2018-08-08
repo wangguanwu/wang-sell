@@ -5,16 +5,15 @@
 
     </div><!-- total-page end-->
 </div> <!-- root-page container -->
-<div id="product-detail-wang" class="container">
-    <div class="panel panel-default">
+<div id="product-detail-wang"   class="container">
+    <div id="panel-default-wang">
         <div class="panel-heading">
             <h3 class="panel-title">
             ${productInfo.productName}
             </h3>
         </div>
-
     <#--<div class="panel panel-default">-->
-        <div class="panel-body">
+        <div>
             <div id="product-img">
                 <img src="${productInfo.productIcon}"/>
             </div>

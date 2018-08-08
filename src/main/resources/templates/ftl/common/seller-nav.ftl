@@ -1,4 +1,3 @@
-<body>
 <div class="root-page">
     <div class="navbar  navbar-inverse" role="navigation">
         <div class="container">
@@ -21,8 +20,3 @@
         </div><!-- /.navbar -->
     </div>
 </div>
-<!-- jQuery (Bootstrap 插件需要引入) -->
-<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-<!-- 包含了所有编译插件 -->
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-

@@ -16,6 +16,10 @@ public interface ProductService {
     void increaseStock(List<CartDTO> cartDTOList);
     List<ProductInfo> findByProdcutCategory(Integer category);
     List<ProductInfo> findByProductId(List<String> productIdList);
+    //上架
+    public ProductInfo onSale(String productId);
+    //下架
+    public ProductInfo offSale(String productId);
 
 
 

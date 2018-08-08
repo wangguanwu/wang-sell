@@ -65,7 +65,9 @@
 <script type="text/javascript">
     $(function(){
 
-        $("#submit-order").click(function(){
+
+        $("#submit-order").click(function(event){
+            event.preventDefault();
             var productId = ${productInfo.productId!false};
             var productQuantiry = ${cartDTO.productQuantity!false};
             if(!productId ||!productQuantiry)
