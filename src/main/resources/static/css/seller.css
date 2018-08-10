@@ -1,3 +1,25 @@
 #total-page .panel-group{
     max-height:200px;
 }
+/*修改商品的表单*/
+#product-modify-content{
+    min-width: 80%;
+}
+#seller-side-bar{
+    margin-left:10px;
+    margin-right:0;
+}
+#seller-side-bar .panel-group{
+    width:90%;
+
+}
+#seller-side-bar #group-category .panel{
+    margin-top:0;
+}
+#seller-side-bar .list-group{
+    margin-bottom:0;
+}
+#order-modify-content,#seller-category-list,#seller-category-index{
+    width:75%;
+    margin-right:10px;
+}

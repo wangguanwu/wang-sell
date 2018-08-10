@@ -17,7 +17,7 @@
                                 <#list product as item>
                                 <#--<#list item.productInfoList as productInfoList>-->
                                 <#--</#list>-->
-                                    <li class="list-group-item"><a href="buyer/product/categoryList">${item.categoryName}</a></li>
+                                    <li class="list-group-item"><a href="/sell/buyer/product/categoryList/${item.categoryType}">${item.categoryName}</a></li>
                                 </#list>
                         </ul>
                     </div>

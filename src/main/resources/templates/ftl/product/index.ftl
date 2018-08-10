@@ -1,35 +1,36 @@
+<#import "../spring.ftl" as spring>
 <#include "../common/seller-header.ftl">
 <#include "../common/seller-nav.ftl">
 <#include "../common/seller-left-sider.ftl">
-    </div><!--total page-->
-</div><!-- root page-->
-<div class="toggle" id="wrapper">
- <#include "../common/nav.ftl">
-    <#--主要内容-->
-    <div id="page-content-wrapper">
-        <div class="container-fluid">
+<#--主要内容-->
+    <div id="product-modify-content" class="panel panel-default">
+        <div class="container-fluid" class="panel">
             <div class="row clearfix">
-                <form role="form" method="post" action="/sell/seller/product/save">
+                <form role="form" method="post" style="margin-left:10px;margin-right:10px;" action="/sell/seller/product/save">
                     <div class="form-group">
                         <label>名称</label>
-                        <input type="text" name="productName" class="form-control" value="${productInfo.productName!""}"/>
+                        <input type="text" name="productName" class="form-control" value="${productInfo.productName!''}"/>
                     </div>
                     <div class="form-group">
                         <label>价格</label>
-                        <input name="productPrice" type="text" class="form-control" value="${(productInfo.productPrice)!''}"/>
+                        <input name="productPrice" type="text" class="form-control"
+                               value="${(productInfo.productPrice)!''}"/>
                     </div>
                     <div class="form-group">
                         <label>库存</label>
-                        <input name="productStock" type="number" class="form-control" value="${(productInfo.productStock)!''}"/>
+                        <input name="productStock" type="number" class="form-control"
+                               value="${(productInfo.productStock)!''}"/>
                     </div>
                     <div class="form-group">
                         <label>描述</label>
-                        <input name="productDescription" type="text" class="form-control" value="${(productInfo.productDescription)!''}"/>
+                        <input name="productDescription" type="text" class="form-control"
+                               value="${(productInfo.productDescription)!''}"/>
                     </div>
                     <div class="form-group">
                         <label>图片</label>
                         <img height="100" width="100" src="${(productInfo.productIcon)!''}" alt="">
-                        <input name="productIcon" type="text" class="form-control" value="${(productInfo.productIcon)!''}"/>
+                        <input name="productIcon" type="text" class="form-control"
+                               value="${(productInfo.productIcon)!''}"/>
                     </div>
                     <div class="form-group">
                         <label>类目</label>

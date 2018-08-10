@@ -16,10 +16,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 @Controller
 @RequestMapping("/buyer/product")
@@ -70,9 +72,9 @@ public class BuyerProductionController {
      * @param categoryType
      * @return productVo
      */
-    @ResponseBody
-    @GetMapping("/categoryList/{categoryType}")
-    public ResultVo<ProductVo> productList(@PathVariable("categoryType")Integer categoryType){
+//    @ResponseBody
+//    @GetMapping("/categoryList/{categoryType}")
+    public ResultVo<ProductVo> productList(Integer categoryType){
         if(categoryType == null){
             categoryType = 1 ;
         }
@@ -91,6 +93,27 @@ public class BuyerProductionController {
         productVo.setCategoryType(productCategory.getCategoryType());
         return ResultVoUtil.success(productVo);
     }
+    @RequestMapping("/categoryList/{categoryType}")
+    public ModelAndView productCaregoryList(@PathVariable("categoryType")Integer categoryType){
+        List<ProductCategory> categoryList =categoryService.findAll();
+        List<ProductVo> list = new ArrayList<ProductVo>();
+        ProductVo productVo = this.productList(categoryType).getData();
+        for(ProductCategory category : categoryList){
+            if(category.getCategoryType().equals(productVo.getCategoryType())){
+                list.add(productVo);
+                continue;
+            }
+            ProductVo item = new ProductVo();
+            item.setCategoryType(category.getCategoryType());
+            item.setCategoryName(category.getCategoryName());
+            list.add(item);
+        }
+        ModelAndView modelAndView = new ModelAndView("home");
+        modelAndView.addObject("productVoList",list);
+        return modelAndView ;
+
+    }
+
     @RequestMapping("/productInfoDetail/{id}")
     public String singleProduct(@PathVariable("id")String id, Model model){
         ProductInfo productInfo = productService.findOne(id);

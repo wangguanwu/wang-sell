@@ -8,6 +8,7 @@ import com.weixin.sell.wangsell.dataobject.SellerInfo;
 import java.util.List;
 
 public interface SellerService {
+    SellerInfo findByOpenId(String openid);
     SellerInfo findById(String id);
     List<SellerInfo> findByName(String id);
     int update(SellerInfo sellerInfo);

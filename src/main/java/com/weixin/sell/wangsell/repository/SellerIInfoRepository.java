@@ -11,7 +11,7 @@ import java.util.List;
 public interface SellerIInfoRepository extends JpaRepository<SellerInfo ,String> {
     SellerInfo findSellerInfoById(String  id);
     List<SellerInfo> findSellerInfoByUsername(String name);
-    List<SellerInfo> findSellerInfoByOpenid(String openid);
+    SellerInfo findSellerInfoByOpenid(String openid);
     SellerInfo findSellerInfoByUsernameAndPassword(String username ,String password);
 
 }

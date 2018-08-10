@@ -42,4 +42,9 @@ public class SellerServiceImpl implements SellerService {
     public SellerInfo save(SellerInfo sellerInfo) {
         return  repository.save(sellerInfo);
     }
+
+    @Override
+    public SellerInfo findByOpenId(String openid) {
+        return repository.findSellerInfoByOpenid(openid);
+    }
 }

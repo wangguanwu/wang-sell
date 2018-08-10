@@ -1,0 +1,146 @@
+/*表示整个页面(除了导航页面)容器的样式*/
+body{
+    position: absolute;
+    top:-40px;
+    width: 100%;
+    height:100%;
+}
+#product-detail-wang{
+    width:100%;
+}
+.total-page{
+    display: -webkit-flex ;
+    /*flex-direction: row;*/
+    /*flex-wrap: wrap;*/
+    justify-content: flex-start;
+    align-content: flex-start;
+
+}
+.root-container{
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    width:80%;
+
+}
+/*.root-container .img-div{*/
+/*min-height: 100%;*/
+/*}*/
+.root-container .panel{
+    flex-grow: 1;
+    min-width: 30%;
+    max-width: 25%;
+    /*max-height:40%;*/
+    padding:0px;
+    margin:0px;
+}
+.panel-body{
+    margin:0;
+    padding:0;
+    width: 100%;
+    /*height:100%;*/
+}
+.panel-footer{
+}
+.img-div{
+    min-height:60%;
+}
+.root-container img{
+    width:100%;
+    min-height: 300px;
+}
+#product-detail-wang{
+    max-height:700px;
+}
+
+#product-detail-wang .btn-group{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row-reverse;
+    padding:4px;
+    background: #f5f3f3;
+}
+#product-detail-wang .product-description{
+    background: #f5f3f3;
+    min-height: 30px;
+}
+#product-detail-wang #panel-default-wang{
+    max-height: 60%;
+}
+#product-img img{
+    width:50%;
+    max-heigth:400px;
+}
+#product-detail-wang .price{
+    background: #f5f3f3;
+    color:red;
+    font-size:30px;
+}
+
+.main-page{
+
+    display:-webkit-flex;
+    /*flex-direction: row;*/
+    /*flex-wrap: wrap;*/
+    background: #eeeeee;
+    flex-flow: row ;
+    justify-content: flex-start;
+    align-content: flex-start;
+    max-width: 80%;
+}
+#order-out{
+    min-width: 100%;
+    display:flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#order-out #button-group{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+#product-img{
+    display:block;
+    width: 90%;
+
+}
+.modify-cart-page{
+    display:-webkit-flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+
+}
+.modify-cart-page #form-panel{
+    min-width: 70%;
+
+}
+.modify-cart-page #button-group-modify{
+    display:-webkit-flex;
+    display: flex;
+    flex-direction:row-reverse;
+
+
+
+}
+#button-group-modify button{
+    display:inline-block;
+    font-size: 1.5em;
+    margin: 5px;
+    margin-right:7px;
+}
+.total-page .root-container a{
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-top: 5px;
+    margin-left: 60%;
+    display: block;
+    min-width: 100px;
+    min-height: 35px;
+    font-size:1.5em;
+    text-align:center;
+}

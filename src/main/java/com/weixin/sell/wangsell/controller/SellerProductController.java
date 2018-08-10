@@ -9,6 +9,8 @@ import com.weixin.sell.wangsell.form.ProductForm;
 import com.weixin.sell.wangsell.sell.SellException;
 import com.weixin.sell.wangsell.service.CategoryService;
 import com.weixin.sell.wangsell.service.ProductService;
+import com.weixin.sell.wangsell.utils.KeyUtil;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -101,5 +103,29 @@ public class SellerProductController {
         List<ProductCategory>  categoryList =categoryService.findAll();
         model.addAttribute("categoryList",categoryList);
         return "product/index";
+    }
+    @PostMapping("/save")
+    public String save(@Valid ProductForm form,BindingResult bindingResult,Model model){
+        if(bindingResult.hasErrors()){
+            model.addAttribute("errorMsg",bindingResult.getFieldError().getDefaultMessage());
+            model.addAttribute("url","/sell/seller/product/index");
+            return "common/error";
+        }
+        ProductInfo productInfo = new ProductInfo();
+        try{
+            if(!StringUtils.isEmpty(form.getProductId())){
+                productInfo = productService.findOne(form.getProductId());
+            }else{
+                form.setProductId(KeyUtil.genUniqKey());
+            }
+            BeanUtils.copyProperties(form,productInfo);
+            productService.save(productInfo);
+        }catch (SellException e){
+            model.addAttribute("errorMsg",e.getMessage());
+            model.addAttribute("url","/sell/seller/product/index");
+            return "common/error";
+        }
+        model.addAttribute("url","/sell/seller/product/list");
+        return "common/success";
     }
 }

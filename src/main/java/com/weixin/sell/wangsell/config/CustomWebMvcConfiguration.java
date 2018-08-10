@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 @Configuration
-public class CustomWebMvcConfiguration implements WebMvcConfigurer {
+public class CustomWebMvcConfiguration implements WebMvcConfigurer{
     @Autowired
     LoginInterceptor loginInterceptor ;
 //    @Override
@@ -24,8 +24,9 @@ public class CustomWebMvcConfiguration implements WebMvcConfigurer {
     //配置登录拦截器
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(loginInterceptor).addPathPatterns("/admin/login");
-     //   registry.addInterceptor(new Inte)
+        registry.addInterceptor(loginInterceptor).addPathPatterns("/seller/**").excludePathPatterns("/seller/login")
+        .excludePathPatterns("/seller/validate");
+
 
     }
 }

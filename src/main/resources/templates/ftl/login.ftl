@@ -1,3 +1,4 @@
+<#import "spring.ftl" as spring>
 <#include "common/header.ftl">
 <html>
 <head>
@@ -9,12 +10,12 @@
 </head>
 <body>
 <div class="container">
-    <form class="form-signin">
+    <form class="form-signin" action="/sell/seller/validate" method="post">
         <h2 class="form-signin-heading" >请登录</h2>
         <label for="username" class="sr-only">管理员名字</label>
         <input type="text" name="username" class="form-control" placeholder="用户名" required-autofocus/>
         <label for="password"class="sr-only">密码</label>
-        <input type="password" id="password" class="form-control" placeholder="密码"/>
+        <input type="password" name="password" class="form-control" placeholder="密码"/>
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember me">记住我

@@ -1,5 +1,5 @@
 <div class="total-page" id="total-page">
-    <div class="left-sider-bar">
+    <div class="left-sider-bar" id="seller-side-bar">
         <div class="panel-group" id="group-category">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -10,11 +10,10 @@
                         </a>
                     </h4>
                 </div>
-                <div id="order-target" class="panel-collapse collapse in">
-                    <div class="panel panel-body">
+                <div id="order-target" class="panel-collapse collapse ">
+                    <div class="panel-body">
                         <ul class="list-group">
-                            <li class="list-group-item"><a href="/sell/seller/category/list">列表</a></li>
-                            <li class="list-group-item"><a href="/sell/seller/category/index">新增</a></li>
+                            <li class="list-group-item"><a href="/sell/seller/order/list">列表</a></li>
                         </ul>
                     </div>
                 </div>
@@ -28,11 +27,11 @@
                         </a>
                     </h4>
                 </div>
-                <div id="demo0" class="panel-collapse collapse in">
-                    <div class="panel panel-body">
+                <div id="demo0" class="panel-collapse collapse ">
+                    <div class="panel-body">
                         <ul class="list-group">
-                            <li class="list-group-item"><a href="/sell/seller/category/list">列表</a></li>
-                            <li class="list-group-item"><a href="/sell/seller/category/index">新增</a></li>
+                            <li class="list-group-item"><a href="/sell/seller/product/list">列表</a></li>
+                            <li class="list-group-item"><a href="/sell/seller/product/index">新增</a></li>
                         </ul>
                     </div>
                 </div>
@@ -46,8 +45,8 @@
                         </a>
                     </h4>
                 </div>
-                <div id="demo1" class="panel-collapse collapse in">
-                    <div class="panel panel-body">
+                <div id="demo1" class="panel-collapse collapse ">
+                    <div class="panel-body">
                         <ul class="list-group">
                             <li class="list-group-item"><a href="/sell/seller/category/list">列表</a></li>
                             <li class="list-group-item"><a href="/sell/seller/category/index">新增</a></li>
@@ -64,14 +63,15 @@
                         </a>
                     </h4>
                 </div>
-            </div>
-            <div id="logout" class="panel-collapse collapse in">
-                <div class="panel panel-body">
-                    <ul class="list-group">
-                        <li class="list-group-item"><a href="/sell/seller/logout">注销</a></li>
-                    </ul>
+                <div id="logout" class="panel-collapse collapse ">
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item"><a href="/sell/seller/logout">注销</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+
 
         </div>
     </div> <!-- end left-side-bar-->

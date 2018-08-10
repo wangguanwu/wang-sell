@@ -13,6 +13,7 @@ import com.weixin.sell.wangsell.sell.SellException;
 import com.weixin.sell.wangsell.service.BuyerService;
 import com.weixin.sell.wangsell.service.OrderService;
 import com.weixin.sell.wangsell.service.ProductService;
+import com.weixin.sell.wangsell.service.impl.WebSocket;
 import com.weixin.sell.wangsell.utils.ResultVoUtil;
 import com.weixin.sell.wangsell.vo.ResultVo;
 import freemarker.template.Configuration;
@@ -45,10 +46,13 @@ public class BuyerOrderController {
     private OrderService orderService;
     @Autowired
     private BuyerService buyerService;
+    @Autowired
+    private WebSocket webSocket ;
 
     @ResponseBody
     @PostMapping("/create")
     public ResultVo<Map<String, String>> create(@Valid OrderForm orderForm, BindingResult bindingResult) {
+
         if (bindingResult.hasErrors()) {
             log.error("【创建订单】参数不正确，orderForm={}", orderForm);
             throw new SellException(ResultEnum.PARAM_ERROR.getCode(), bindingResult.getFieldError().getDefaultMessage());
@@ -61,6 +65,7 @@ public class BuyerOrderController {
         OrderDTO createResult = orderService.create(orderDTO);
         Map<String, String> map = new HashMap<>();
         map.put("orderId", createResult.getOrderId());
+        webSocket.sendMessage("你有新的订单");
         return ResultVoUtil.success(map);
 
     }
