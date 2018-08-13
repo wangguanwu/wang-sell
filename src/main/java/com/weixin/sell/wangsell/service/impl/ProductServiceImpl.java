@@ -8,6 +8,9 @@ import com.weixin.sell.wangsell.repository.ProductInfoRepository;
 import com.weixin.sell.wangsell.sell.SellException;
 import com.weixin.sell.wangsell.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -18,8 +21,10 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductInfoRepository productInfoRepository;
+    @Cacheable(cacheNames = "product",key="123")
     @Override
     public ProductInfo findOne(String productId) {
+
         return productInfoRepository.findById(productId).get();
     }
 
@@ -35,6 +40,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @CachePut(cacheNames = "product",key="123")
     public ProductInfo save(ProductInfo productInfo) {
         return productInfoRepository.save(productInfo);
     }
@@ -78,6 +84,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Cacheable(cacheNames = "product",key = "123")
     public List<ProductInfo> findByProductId(List<String> productIdList) {
         return productInfoRepository.findByProductId(productIdList);
     }

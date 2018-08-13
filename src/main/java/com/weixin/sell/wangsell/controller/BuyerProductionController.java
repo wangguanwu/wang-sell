@@ -13,6 +13,7 @@ import com.weixin.sell.wangsell.vo.ResultVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -41,6 +42,7 @@ public class BuyerProductionController {
      */
     @GetMapping("/allList")
     @ResponseBody
+    @Cacheable(cacheNames = "productList",key = "123",unless = "#result.code!=0")
     public ResultVo<List<ProductVo>> list(){
         List<ProductInfo> productInfoList = productService.findUpAll();
         List<Integer> categoryTypeList = productInfoList.stream().map(
@@ -62,7 +64,7 @@ public class BuyerProductionController {
             productVo.setProductInfoList(productInfoVoList);
             productVoList.add(productVo);
         }
-        return ResultVoUtil.success(productVoList);
+        return ResultVoUtil.success(productInfoList);
     }
 
     /*查询某个种类的所有商品列表

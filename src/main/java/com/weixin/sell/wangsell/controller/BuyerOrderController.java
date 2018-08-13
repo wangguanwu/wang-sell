@@ -19,6 +19,7 @@ import com.weixin.sell.wangsell.vo.ResultVo;
 import freemarker.template.Configuration;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -36,8 +37,11 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/buyer/order")
+
 @Slf4j
 public class BuyerOrderController {
+
+
     @Autowired
     Configuration cfg;
     @Autowired
@@ -72,6 +76,7 @@ public class BuyerOrderController {
 
     @ResponseBody
     @GetMapping("/list")
+
     public ResultVo<List<OrderDTO>> list(@RequestParam("openid") String openid, @RequestParam("page") Integer page, @RequestParam("size") Integer size) {
         if (StringUtils.isEmpty(openid)) {
             log.error("【查询订单列表】， openId为空");

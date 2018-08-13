@@ -16,6 +16,8 @@ import java.util.function.Predicate;
 public class LoginUtil {
     public static boolean isLogined(HttpServletRequest request,StringRedisTemplate redis ){
         Cookie[] cookies = request.getCookies();
+        if(cookies==null)
+            return false ;
         return Arrays.stream(cookies).anyMatch(new Predicate<Cookie>() {
             @Override
             public boolean test(Cookie cookie) {

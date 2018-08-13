@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 @Data
@@ -16,9 +17,9 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 public class Customer{
     private String openid;
-    @NotEmpty(message = "姓名不能为空")
+    @NotBlank(message = "姓名不能为空")
     private String name ;
-    @NotEmpty(message = "密码不能为空")
+    @NotBlank(message = "密码不能为空")
     private String password;
     private String address ;
     private String phoneNumber ;

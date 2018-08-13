@@ -34,3 +34,8 @@ spring:
     expose-spring-macro-helpers: true
 projecturl:
   sell: http://localhost:8081
+logging:
+  level:
+    com.weixin.sell.wangsell.dataobject.mapper: trace
+mybatis:
+  mapper-locations: classpath:com/weixin/sell/wangsell/dataobject/mapper/*.xml

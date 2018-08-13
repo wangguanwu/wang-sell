@@ -7,6 +7,7 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -14,8 +15,10 @@ import java.util.Date;
 @Data
 @DynamicInsert
 @DynamicUpdate
-public class ProductInfo {
+public class ProductInfo implements Serializable {
 
+
+    private static final long serialVersionUID = 6678959456027153343L;
     @Id
     private String productId;
 
